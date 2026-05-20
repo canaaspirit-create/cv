@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>טניה טבקמכר | קורות חיים</title>
+<!-- פונט עברי מ-Google Fonts עם fallback -->
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   משתני צבע ועיצוב — לשינוי מהיר ערוך כאן
+   ============================================================ */
+:root {
+  --purple:      #6B21E8;   /* סגול — כותרות משנה וצבע מבטא */
+  --purple-light:#EDE9FE;   /* סגול בהיר — רקע tags */
+  --dark:        #111111;   /* שחור כמעט — כותרות ראשיות */
+  --panel:       #D8E8F5;   /* כחול-תכלת — פאנל שמאל */
+  --panel-dark:  #B8D4ED;   /* כחול כהה יותר — hover */
+  --white:       #FFFFFF;
+  --off-white:   #F7F9FC;
+  --gray-light:  #F0F4F8;
+  --gray-mid:    #CBD5E1;
+  --text:        #1E293B;
+  --text-muted:  #64748B;
+  --border:      #E2E8F0;
+  --timeline:    #BFDBFE;
+  --dot-fill:    #6B21E8;
+  --dot-empty:   #DDD6FE;
+  --font:        'Heebo', Arial, sans-serif;
+  --radius:      16px;
+  --shadow:      0 4px 24px rgba(0,0,0,0.08);
+  --shadow-lg:   0 8px 40px rgba(0,0,0,0.12);
+}
+
+/* ============================================================ RESET */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font);
+  background: var(--off-white);
+  color: var(--text);
+  direction: rtl;
+  min-height: 100vh;
+  font-size: 15px;
+  line-height: 1.6;
+}
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+button { font-family: var(--font); cursor: pointer; border: none; background: none; }
+
+/* ============================================================ WRAPPER */
+.cv-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: var(--white);
+  box-shadow: var(--shadow-lg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============================================================ NAV TABS */
+.nav-tabs {
+  display: flex;
+  background: var(--dark);
+  overflow-x: auto;
+  scrollbar-width: none;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nav-tabs::-webkit-scrollbar { display: none; }
+
+.nav-tab {
+  padding: 14px 22px;
+  color: rgba(255,255,255,0.55);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: all .2s;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+}
+.nav-tab:hover { color: rgba(255,255,255,0.85); }
+.nav-tab.active {
+  color: #fff;
+  border-bottom-color: var(--purple);
+}
+
+/* ============================================================ SECTIONS (pages) */
+.section { display: none; animation: fadeUp .4s ease both; }
+.section.active { display: block; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   SECTION 1 — MAIN: two-column hero (panel + experience)
+   ============================================================ */
+.main-grid {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  min-height: calc(100vh - 48px);
+}
+
+/* Left blue panel */
+.left-panel {
+  background: var(--panel);
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.profile-area {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* תמונת פרופיל עגולה — ניתן להחליף src */
+.profile-photo {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: var(--panel-dark);
+  border: 3px solid var(--white);
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: var(--purple);
+  font-weight: 900;
+}
+
+.profile-name h1 {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--dark);
+  line-height: 1.15;
+}
+.profile-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--purple);
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+/* Social icon circles */
+.social-icons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.social-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--dark);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  text-decoration: none;
+  transition: transform .2s, background .2s;
+  flex-shrink: 0;
+}
+.social-icon:hover { background: var(--purple); transform: scale(1.1); }
+
+/* About + Skills cards */
+.info-card {
+  background: rgba(255,255,255,0.55);
+  border-radius: var(--radius);
+  padding: 20px 18px;
+  backdrop-filter: blur(4px);
+}
+.info-card h3 {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--dark);
+  margin-bottom: 10px;
+}
+.info-card p, .info-card li {
+  font-size: 13.5px;
+  color: var(--text);
+  line-height: 1.65;
+}
+.info-card ul { display: flex; flex-direction: column; gap: 5px; }
+.info-card li::before { content: "•  "; color: var(--purple); font-weight: 700; }
+
+.expand-btn {
+  margin-top: 12px;
+  padding: 6px 16px;
+  border: 2px solid var(--dark);
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--dark);
+  transition: all .2s;
+}
+.expand-btn:hover { background: var(--dark); color: #fff; }
+
+/* Right white panel — experience */
+.right-panel {
+  padding: 40px 36px;
+  background: var(--white);
+}
+.right-panel h2 {
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--dark);
+  margin-bottom: 28px;
+}
+
+/* Timeline */
+.timeline { position: relative; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  right: 19px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--timeline);
+}
+
+.tl-item {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 6px;
+  position: relative;
+}
+
+/* Dark circle with + */
+.tl-dot {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--dark);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background .2s, transform .2s;
+  z-index: 1;
+  border: 3px solid var(--white);
+}
+.tl-dot:hover, .tl-item.open .tl-dot { background: var(--purple); transform: scale(1.08); }
+.tl-item.open .tl-dot { content: '−'; }
+.tl-dot-symbol { font-size: 20px; line-height: 1; }
+.tl-item.open .tl-dot .tl-dot-symbol::before { content: '−'; }
+.tl-item:not(.open) .tl-dot .tl-dot-symbol::before { content: '+'; }
+
+.tl-content { padding: 0 0 24px; flex: 1; }
+.tl-company {
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: var(--dark);
+}
+.tl-role { font-size: 14px; color: var(--text-muted); margin-top: 2px; }
+.tl-date { font-size: 11.5px; color: var(--purple); font-weight: 600; margin-top: 3px; }
+.tl-details {
+  display: none;
+  margin-top: 10px;
+  font-size: 13.5px;
+  color: var(--text);
+  line-height: 1.7;
+  background: var(--gray-light);
+  border-radius: 12px;
+  padding: 14px 16px;
+  border-right: 3px solid var(--purple);
+  animation: fadeUp .3s ease both;
+}
+.tl-item.open .tl-details { display: block; }
+
+/* ============================================================
+   SECTION 2 — EDUCATION (3-column layout like Genially)
+   ============================================================ */
+.edu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 320px;
+  min-height: calc(100vh - 48px);
+}
+
+.edu-col {
+  padding: 40px 28px;
+  border-left: 1px solid var(--border);
+}
+.edu-col:last-child {
+  background: var(--panel);
+  border-left: none;
+}
+.edu-col h2 {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--dark);
+  margin-bottom: 24px;
+}
+
+/* Expandable education items */
+.edu-item {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 18px;
+  cursor: pointer;
+}
+.edu-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--dark);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+  transition: background .2s;
+}
+.edu-item:hover .edu-circle,
+.edu-item.open .edu-circle { background: var(--purple); }
+.edu-circle-sym::before { content: '+'; }
+.edu-item.open .edu-circle-sym::before { content: '−'; }
+
+.edu-text { flex: 1; }
+.edu-title {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--purple);
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  line-height: 1.3;
+}
+.edu-sub { font-size: 12.5px; color: var(--text-muted); margin-top: 3px; }
+.edu-details {
+  display: none;
+  font-size: 12.5px;
+  color: var(--text);
+  background: rgba(107,33,232,.06);
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin-top: 6px;
+  animation: fadeUp .25s ease both;
+}
+.edu-item.open .edu-details { display: block; }
+
+/* ── military service tag ── */
+.military-tag {
+  display: inline-block;
+  background: var(--dark);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 50px;
+  margin-bottom: 10px;
+  letter-spacing: .04em;
+}
+
+/* Side col — languages + other data */
+.edu-col.side h3 {
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--dark);
+  margin: 0 0 16px;
+}
+.lang-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+.lang-pill {
+  border: 2px solid var(--dark);
+  border-radius: 50px;
+  padding: 5px 16px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .05em;
+  background: var(--white);
+  color: var(--dark);
+  transition: all .2s;
+}
+.lang-pill:hover { background: var(--dark); color: #fff; }
+
+.contact-list { display: flex; flex-direction: column; gap: 10px; }
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+}
+.contact-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--dark);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+.contact-row a { color: var(--purple); font-weight: 600; word-break: break-all; font-size: 12.5px; }
+
+/* ============================================================
+   SECTION 3 — SKILLS: tools + skills tags
+   ============================================================ */
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  min-height: calc(100vh - 48px);
+}
+.skills-col {
+  padding: 40px 36px;
+  border-left: 1px solid var(--border);
+}
+.skills-col:last-child { background: var(--off-white); border-left: none; }
+.skills-col h2 {
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--dark);
+  margin-bottom: 24px;
+}
+
+/* Dot-bar ratings */
+.tool-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+.tool-name { font-size: 14px; font-weight: 600; color: var(--text); }
+.dot-bar { display: flex; gap: 6px; }
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--dot-empty);
+}
+.dot.filled { background: var(--dot-fill); }
+
+/* Skill tags cloud */
+.skills-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+.skill-tag {
+  background: var(--purple-light);
+  color: var(--purple);
+  border-radius: 50px;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all .2s;
+}
+.skill-tag:hover { background: var(--purple); color: #fff; }
+
+.section-label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 24px 0 12px;
+}
+
+/* ============================================================
+   SECTION 4 — RESEARCH
+   ============================================================ */
+.research-wrap { padding: 48px 48px; max-width: 820px; margin: 0 auto; }
+.research-wrap h2 { font-size: 26px; font-weight: 900; color: var(--dark); margin-bottom: 32px; }
+.research-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 28px 28px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow);
+  transition: box-shadow .2s, transform .2s;
+  animation: fadeUp .5s ease both;
+}
+.research-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+.research-card:nth-child(2) { animation-delay: .1s; }
+.research-card:nth-child(3) { animation-delay: .2s; }
+.rc-tag {
+  display: inline-block;
+  background: var(--purple);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 12px;
+  border-radius: 50px;
+  margin-bottom: 10px;
+  letter-spacing: .05em;
+}
+.research-card h3 { font-size: 17px; font-weight: 800; color: var(--dark); margin-bottom: 10px; }
+.research-card p  { font-size: 14px; color: var(--text); line-height: 1.75; }
+.rc-meta { margin-top: 14px; font-size: 12px; color: var(--text-muted); font-weight: 600; }
+
+/* ============================================================
+   SECTION 5 — CONTACT
+   ============================================================ */
+.contact-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 48px);
+  background: linear-gradient(135deg, var(--panel) 0%, var(--white) 60%);
+  padding: 40px 24px;
+}
+.contact-card-big {
+  background: var(--white);
+  border-radius: 28px;
+  padding: 48px 40px;
+  box-shadow: var(--shadow-lg);
+  max-width: 560px;
+  width: 100%;
+  text-align: center;
+  animation: fadeUp .4s ease both;
+}
+.contact-card-big .avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--panel);
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34px;
+  color: var(--purple);
+  font-weight: 900;
+}
+.contact-card-big h2 { font-size: 24px; font-weight: 900; color: var(--dark); }
+.contact-card-big .subtitle { font-size: 14px; color: var(--purple); font-weight: 700; margin: 6px 0 28px; }
+
+.contact-items { display: flex; flex-direction: column; gap: 14px; text-align: right; }
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  background: var(--gray-light);
+  border-radius: 14px;
+  transition: background .2s;
+}
+.contact-item:hover { background: var(--panel); }
+.ci-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--dark);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  flex-shrink: 0;
+}
+.ci-label { font-size: 11px; color: var(--text-muted); font-weight: 600; }
+.ci-value { font-size: 14px; color: var(--dark); font-weight: 700; }
+.ci-value a { color: var(--purple); }
+
+/* ============================================================ PRINT BUTTON */
+.print-btn {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  background: var(--dark);
+  color: #fff;
+  border-radius: 50px;
+  padding: 11px 22px;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: var(--shadow-lg);
+  z-index: 200;
+  transition: background .2s, transform .2s;
+}
+.print-btn:hover { background: var(--purple); transform: translateY(-2px); }
+
+/* ============================================================ RESPONSIVE */
+@media (max-width: 900px) {
+  .main-grid, .edu-grid, .skills-grid { grid-template-columns: 1fr; }
+  .left-panel { padding: 28px 20px; }
+  .right-panel { padding: 28px 20px; }
+  .edu-col { border-left: none; border-bottom: 1px solid var(--border); }
+  .edu-col.side { background: var(--panel); border-bottom: none; }
+  .skills-col { padding: 28px 20px; }
+  .research-wrap { padding: 28px 20px; }
+  .contact-card-big { padding: 32px 20px; }
+  .print-btn { bottom: 16px; left: 16px; padding: 9px 16px; font-size: 12px; }
+}
+
+/* ============================================================ PRINT */
+@media print {
+  .nav-tabs, .print-btn { display: none; }
+  .section { display: block !important; }
+  .main-grid, .edu-grid, .skills-grid { grid-template-columns: 1fr 1fr; }
+  .cv-wrapper { box-shadow: none; }
+  .tl-details { display: block !important; }
+  .edu-details { display: block !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="cv-wrapper">
+
+  <!-- ======================================================= NAV TABS -->
+  <nav class="nav-tabs" role="tablist">
+    <button class="nav-tab active" onclick="showSection('main', this)">👤 ראשי</button>
+    <button class="nav-tab" onclick="showSection('edu',  this)">🎓 השכלה ושירות</button>
+    <button class="nav-tab" onclick="showSection('research', this)">🔬 מחקר ופרויקטים</button>
+    <button class="nav-tab" onclick="showSection('skills', this)">💡 כישורים וכלים</button>
+    <button class="nav-tab" onclick="showSection('contact', this)">📬 צור קשר</button>
+  </nav>
+
+  <!-- ======================================================= SECTION 1: MAIN -->
+  <section class="section active" id="sec-main">
+    <div class="main-grid">
+
+      <!-- ── Left blue panel ── -->
+      <div class="left-panel">
+
+        <!-- שם וכותרת -->
+        <div class="profile-area">
+          <div class="profile-photo">ט</div><!-- ניתן להחליף ב-<img src="..." alt=""> -->
+          <div class="profile-name">
+            <h1>טניה<br>טבקמכר</h1>
+            <!-- כותרת מקצועית -->
+            <div class="profile-title">מורה לחקלאות וכלבנות | חוקרת התנהגות בעלי חיים | מרצה ומנחת סדנאות</div>
+          </div>
+        </div>
+
+        <!-- Social icons -->
+        <div class="social-icons">
+          <a class="social-icon" href="tel:0542166396" title="טלפון">📞</a>
+          <a class="social-icon" href="mailto:tanyatabakmaher@gmail.com" title="מייל">✉️</a>
+          <a class="social-icon" href="https://www.canaanspirit.co.il/" target="_blank" title="אתר">🌐</a>
+          <a class="social-icon" href="https://www.youtube.com/@canaanspirit" target="_blank" title="יוטיוב">▶️</a>
+        </div>
+
+        <!-- About me -->
+        <div class="info-card">
+          <h3>על עצמי</h3>
+          <p>מרצה ומנחת סדנאות בתחום הכלבנות והאילוף, ומטפלת בעזרת כלבים בחינוך מיוחד. בעלת ניסיון בהוראה, הנחיית קבוצות, פיתוח תוכן לימודי וחווייתי, ועבודה עם ילדים ונוער עם לקויות למידה.</p>
+          <p style="margin-top:8px;">חוקרת התנהגות בעלי חיים במסגרת תואר שני מחקרי בזואולוגיה, עם התמחות בלמידה חברתית בין חולדות. בעלת ניסיון קודם משמעותי בהייטק — פיתוח ממשקים, ניהול צוותים והובלת פרויקטים.</p>
+        </div>
+
+        <!-- Skills summary -->
+        <div class="info-card">
+          <h3>כישורי מפתח</h3>
+          <ul>
+            <li>הנחיית סדנאות, קורסים והרצאות</li>
+            <li>פיתוח תוכן לימודי וחווייתי</li>
+            <li>עבודה עם תלמידים עם לקויות למידה</li>
+            <li>כלבנות טיפולית וחינוכית</li>
+            <li>Front-End: React, JS, HTML, Angular</li>
+            <li>ניהול צוותים ופרויקטים טכנולוגיים</li>
+          </ul>
+        </div>
+
+      </div><!-- /left-panel -->
+
+      <!-- ── Right panel: Experience ── -->
+      <div class="right-panel">
+        <h2>ניסיון תעסוקתי</h2>
+        <div class="timeline">
+
+          <!-- כל .tl-item ניתן לפתוח / לסגור בלחיצה -->
+          <div class="tl-item open" onclick="toggleTl(this)">
+            <div class="tl-dot"><span class="tl-dot-symbol"></span></div>
+            <div class="tl-content">
+              <div class="tl-company">בית אקשטיין</div>
+              <div class="tl-role">מורה לחקלאות, התמחות בכלבנות</div>
+              <div class="tl-date">2023 — היום · אור יהודה</div>
+              <div class="tl-details">מלמדת במגמת חקלאות המתמחה בענף הכלבים ומכינה תלמידים לבגרות ברמת 5 יחידות. הלמידה משלבת חוויה, התנסות מעשית, למידה בתנועה ומשחקים, בהתאמה לתלמידים עם לקויות למידה. התלמידים עובדים ישירות עם כלבותיי כחלק מהתהליך הלימודי.</div>
+            </div>
+          </div>
+
+          <div class="tl-item open" onclick="toggleTl(this)">
+            <div class="tl-dot"><span class="tl-dot-symbol"></span></div>
+            <div class="tl-content">
+              <div class="tl-company">Canaan Spirit</div>
+              <div class="tl-role">מרצה, מנחת סדנאות ובעלת עסק</div>
+              <div class="tl-date">2019 — היום</div>
+              <div class="tl-details">עסק עצמאי בתחום הכלבנות — הרצאות במוסדות חינוך, ארגונים וחברות על תקשורת בין אדם לכלב, חינוך חיובי וכלבנות טיפולית. יזמה את ערוץ YouTube Canaan Spirit הכולל תכנים מקצועיים ולייבים לקהל הרחב.</div>
+            </div>
+          </div>
+
+          <div class="tl-item open" onclick="toggleTl(this)">
+            <div class="tl-dot"><span class="tl-dot-symbol"></span></div>
+            <div class="tl-content">
+              <div class="tl-company">Forcepoint</div>
+              <div class="tl-role">Front-End Technical & Team Lead</div>
+              <div class="tl-date">2015 — 2021 · Data Security Cloud</div>
+              <div class="tl-details">הובילה את פיתוח ממשק המשתמש של פלטפורמת הלקוחות המרכזית — מתכנון ואדריכלות ועד בנייה מלאה ב-React. ניהלה צוות פיתוח, כולל הנחיה מקצועית וליווי אישי. עבודה עם Agile ו-RESTful APIs.</div>
+            </div>
+          </div>
+
+          <div class="tl-item open" onclick="toggleTl(this)">
+            <div class="tl-dot"><span class="tl-dot-symbol"></span></div>
+            <div class="tl-content">
+              <div class="tl-company">Ladbrokes</div>
+              <div class="tl-role">Senior Client Developer</div>
+              <div class="tl-date">2013 — 2015</div>
+              <div class="tl-details">פיתוח וניהול ממשקי לקוחות ותחזוקת אתרי החברה במערכת IMS. פיתחה כלים שיווקיים ודפי נחיתה ב-JavaScript, HTML, Angular ו-Flash.</div>
+            </div>
+          </div>
+
+          <div class="tl-item open" onclick="toggleTl(this)">
+            <div class="tl-dot"><span class="tl-dot-symbol"></span></div>
+            <div class="tl-content">
+              <div class="tl-company">Game Scale</div>
+              <div class="tl-role">Flash & HTML5 Developers Team Manager</div>
+              <div class="tl-date">2012 — 2013</div>
+              <div class="tl-details">ניהלה את צוות הקליינט שפיתח משחקים ב-Flash, והובילה את המעבר לפלטפורמת HTML5. אחראית על ארכיטקטורה, פיתוח וניהול — עם צוותים מבוזרים בארץ ובחו"ל.</div>
+            </div>
+          </div>
+
+          <div class="tl-item open" onclick="toggleTl(this)">
+            <div class="tl-dot"><span class="tl-dot-symbol"></span></div>
+            <div class="tl-content">
+              <div class="tl-company">William Hill</div>
+              <div class="tl-role">Flash AS3 Developer</div>
+              <div class="tl-date">2010 — 2012</div>
+              <div class="tl-details">פיתוח אפליקציות שיווקיות, משחקים וכלים אינטראקטיביים ב-Flash ו-JavaScript. כתבה קוד למגוון פלטפורמות כולל iPhone ו-Android, ובנתה באנרים אינטראקטיביים לקמפיינים שיווקיים.</div>
+            </div>
+          </div>
+
+        </div><!-- /timeline -->
+      </div><!-- /right-panel -->
+
+    </div><!-- /main-grid -->
+  </section>
+
+  <!-- ======================================================= SECTION 2: EDUCATION -->
+  <section class="section" id="sec-edu">
+    <div class="edu-grid">
+
+      <!-- Col 1: Education -->
+      <div class="edu-col">
+        <h2>השכלה אקדמית</h2>
+
+        <div class="edu-item open" onclick="toggleEdu(this)">
+          <div class="edu-circle"><span class="edu-circle-sym"></span></div>
+          <div class="edu-text">
+            <div class="edu-title">M.Sc. בזואולוגיה — מחקרי</div>
+            <div class="edu-sub">אוניברסיטת תל אביב · 2023 — היום</div>
+            <div class="edu-details">מחקר בהתנהגות בעלי חיים — אסטרטגיות שיחור מזון בחולדות בר. עבודה במעבדה של ד"ר נועה טרוסקנוב לאקולוגיה התנהגותית וקוגניטיבית.</div>
+          </div>
+        </div>
+
+        <div class="edu-item open" onclick="toggleEdu(this)">
+          <div class="edu-circle"><span class="edu-circle-sym"></span></div>
+          <div class="edu-text">
+            <div class="edu-title">B.Sc. מדעי החיים — מצטיינת</div>
+            <div class="edu-sub">האוניברסיטה הפתוחה · 2017 — 2022</div>
+            <div class="edu-details">תואר ראשון במדעי החיים, סיום בהצטיינות.</div>
+          </div>
+        </div>
+
+        <div class="edu-item open" onclick="toggleEdu(this)">
+          <div class="edu-circle"><span class="edu-circle-sym"></span></div>
+          <div class="edu-text">
+            <div class="edu-title">מאלפת בחירה ומטפלת התנהגותית</div>
+            <div class="edu-sub">מכללת מאי דוג, בחסות האוניברסיטה העברית · 2018 — 2019</div>
+            <div class="edu-details">הכשרה באילוף כלבים, טיפול התנהגותי וכלבנות טיפולית.</div>
+          </div>
+        </div>
+
+        <div class="edu-item open" onclick="toggleEdu(this)">
+          <div class="edu-circle"><span class="edu-circle-sym"></span></div>
+          <div class="edu-text">
+            <div class="edu-title">קורס פיתוח HTML5</div>
+            <div class="edu-sub">מכללת Netcraft · 2013</div>
+            <div class="edu-details">קורס פיתוח ווב בטכנולוגיות HTML5 המתקדמות.</div>
+          </div>
+        </div>
+
+        <div class="edu-item open" onclick="toggleEdu(this)">
+          <div class="edu-circle"><span class="edu-circle-sym"></span></div>
+          <div class="edu-text">
+            <div class="edu-title">הכשרת תוכניתני .NET, Microsoft 2008</div>
+            <div class="edu-sub">מכללת ג׳ון ברייס · 2009 — 2010</div>
+            <div class="edu-details">קורס מקיף בפיתוח תוכנה בטכנולוגיות Microsoft.</div>
+          </div>
+        </div>
+
+        <div class="edu-item open" onclick="toggleEdu(this)">
+          <div class="edu-circle"><span class="edu-circle-sym"></span></div>
+          <div class="edu-text">
+            <div class="edu-title">בגרות מלאה — מגמת מחשבים</div>
+            <div class="edu-sub">תיכון הנדסאים, אוניברסיטת תל אביב · 2003 — 2006</div>
+            <div class="edu-details">בגרות מלאה עם התמחות במחשבים.</div>
+          </div>
+        </div>
+      </div><!-- /col 1 -->
+
+      <!-- Col 2: Military service -->
+      <div class="edu-col">
+        <h2>שירות צבאי</h2>
+        <span class="military-tag">🪖 חיל האוויר</span>
+
+        <div class="edu-item open" onclick="toggleEdu(this)">
+          <div class="edu-circle"><span class="edu-circle-sym"></span></div>
+          <div class="edu-text">
+            <div class="edu-title">כותבת לומדה</div>
+            <div class="edu-sub">חיל האוויר · 2007 — 2009</div>
+            <div class="edu-details">פיתוח וכתיבת לומדות הדרכה בבית הספר לטיסה בחצרים ובמחלקת שה"ד בקרייה.</div>
+          </div>
+        </div>
+      </div><!-- /col 2 -->
+
+      <!-- Col 3: Side panel - languages + contact -->
+      <div class="edu-col side">
+        <h3>שפות</h3>
+        <div class="lang-pills">
+          <!-- ניתן לשנות שפות כאן -->
+          <span class="lang-pill">עברית</span>
+          <span class="lang-pill">רוסית</span>
+          <span class="lang-pill">אנגלית</span>
+        </div>
+
+        <h3>פרטי קשר</h3>
+        <div class="contact-list">
+          <div class="contact-row">
+            <div class="contact-icon">📞</div>
+            <div><div class="ci-label">טלפון</div><div class="ci-value">0542-166-396</div></div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon">✉️</div>
+            <div><div class="ci-label">דוא"ל</div><div class="ci-value"><a href="mailto:tanyatabakmaher@gmail.com">tanyatabakmaher@gmail.com</a></div></div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon">📍</div>
+            <div><div class="ci-label">מיקום</div><div class="ci-value">תל אביב</div></div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon">🌐</div>
+            <div><div class="ci-label">אתר</div><div class="ci-value"><a href="https://www.canaanspirit.co.il/" target="_blank">canaanspirit.co.il</a></div></div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon">▶️</div>
+            <div><div class="ci-label">יוטיוב</div><div class="ci-value"><a href="https://www.youtube.com/@canaanspirit" target="_blank">@canaanspirit</a></div></div>
+          </div>
+        </div>
+      </div><!-- /col 3 -->
+
+    </div><!-- /edu-grid -->
+  </section>
+
+  <!-- ======================================================= SECTION 3: RESEARCH -->
+  <section class="section" id="sec-research">
+    <div class="research-wrap">
+      <h2>מחקר ופרויקטים עצמאיים</h2>
+
+      <div class="research-card">
+        <span class="rc-tag">מחקר אקדמי</span>
+        <h3>אסטרטגיות שיחור מזון בחולדות בר — תואר שני M.Sc. בזואולוגיה</h3>
+        <p>המחקר עוסק באסטרטגיות שיחור מזון בקרב חולדות בר בישראל, סביב מסורת מורכבת של פתיחת אצטרובלים של אורן ירושלים לצורך הוצאת זרעי צנובר. נבחנים דפוסים יציבים של תפקידי <em>scroungers</em> ו-<em>producers</em>, שימור תפקידים לאורך זמן, וקשרים בין אסטרטגיות התנהגותיות לאינטראקציות חברתיות בין זוגות חולדות.</p>
+        <div class="rc-meta">📍 מעבדת ד"ר נועה טרוסקנוב לאקולוגיה התנהגותית וקוגניטיבית, אוניברסיטת תל אביב · 2023 — היום</div>
+      </div>
+
+      <div class="research-card">
+        <span class="rc-tag">פרויקט עצמאי</span>
+        <h3>Canaan Spirit — ערוץ ידע דיגיטלי בכלבנות</h3>
+        <p>יזמה והקימה את ערוץ YouTube <strong>Canaan Spirit</strong> — פלטפורמת תוכן מקצועית להנגשת עולם האילוף לקהל הרחב. הערוץ כולל הרצאות, לייבים, טיפים מעשיים ותכנים חינוכיים על תקשורת בין אדם לכלב, חינוך חיובי וכלבנות טיפולית.</p>
+        <div class="rc-meta">🎥 <a href="https://www.youtube.com/@canaanspirit" target="_blank" style="color:var(--purple)">youtube.com/@canaanspirit</a> · 2019 — היום</div>
+      </div>
+
+      <div class="research-card">
+        <span class="rc-tag">פיתוח לימודי</span>
+        <h3>לומדות הכנה לבגרות בחקלאות</h3>
+        <p>בניית לומדה דיגיטלית אינטראקטיבית לתלמידי מגמת חקלאות — 18 לומדות הכוללות נושאי בעלי חיים, ענף הכלבים וענף הסוסים. הלומדה מכינה לבגרות ברמת 5 יחידות ומותאמת לתלמידים עם לקויות למידה.</p>
+        <div class="rc-meta">🌐 <a href="https://bagruyot.org/haklaut/" target="_blank" style="color:var(--purple)">bagruyot.org/haklaut</a> · 2024 — היום</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================= SECTION 4: SKILLS -->
+  <section class="section" id="sec-skills">
+    <div class="skills-grid">
+
+      <!-- Col 1: Tools with dot ratings -->
+      <div class="skills-col">
+        <h2>כלים וטכנולוגיות</h2>
+        <!-- כל שורה: שם + 5 נקודות (filled = שולטת) -->
+        <!-- לשינוי רמה: שנה מספר ה-.dot.filled -->
+        <div class="tool-row">
+          <span class="tool-name">React / JavaScript</span>
+          <div class="dot-bar">
+            <div class="dot filled"></div><div class="dot filled"></div>
+            <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div>
+          </div>
+        </div>
+        <div class="tool-row">
+          <span class="tool-name">HTML / CSS</span>
+          <div class="dot-bar">
+            <div class="dot filled"></div><div class="dot filled"></div>
+            <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div>
+          </div>
+        </div>
+        <div class="tool-row">
+          <span class="tool-name">Angular</span>
+          <div class="dot-bar">
+            <div class="dot filled"></div><div class="dot filled"></div>
+            <div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div>
+          </div>
+        </div>
+        <div class="tool-row">
+          <span class="tool-name">RESTful APIs</span>
+          <div class="dot-bar">
+            <div class="dot filled"></div><div class="dot filled"></div>
+            <div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div>
+          </div>
+        </div>
+        <div class="tool-row">
+          <span class="tool-name">Agile / Scrum</span>
+          <div class="dot-bar">
+            <div class="dot filled"></div><div class="dot filled"></div>
+            <div class="dot filled"></div><div class="dot"></div><div class="dot"></div>
+          </div>
+        </div>
+        <div class="tool-row">
+          <span class="tool-name">עריכת וידאו / יוטיוב</span>
+          <div class="dot-bar">
+            <div class="dot filled"></div><div class="dot filled"></div>
+            <div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div>
+          </div>
+        </div>
+        <div class="tool-row">
+          <span class="tool-name">עיצוב לומדות (iSpring)</span>
+          <div class="dot-bar">
+            <div class="dot filled"></div><div class="dot filled"></div>
+            <div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div>
+          </div>
+        </div>
+
+        <p class="section-label">שפות</p>
+        <div class="lang-pills">
+          <span class="lang-pill">עברית — שפת אם</span>
+          <span class="lang-pill">רוסית — שפת אם</span>
+          <span class="lang-pill">אנגלית — שוטף</span>
+        </div>
+      </div>
+
+      <!-- Col 2: Skills tags -->
+      <div class="skills-col">
+        <h2>כישורים מקצועיים</h2>
+
+        <p class="section-label">הוראה והנחיה</p>
+        <div class="skills-tags">
+          <span class="skill-tag">הנחיית סדנאות</span>
+          <span class="skill-tag">הרצאות פרונטליות</span>
+          <span class="skill-tag">הרצאות דיגיטליות</span>
+          <span class="skill-tag">עמידה מול קהל</span>
+          <span class="skill-tag">חינוך מיוחד</span>
+          <span class="skill-tag">למידה מבוססת חוויה</span>
+        </div>
+
+        <p class="section-label">תוכן ולמידה</p>
+        <div class="skills-tags">
+          <span class="skill-tag">פיתוח תוכן לימודי</span>
+          <span class="skill-tag">בניית מערכי שיעור</span>
+          <span class="skill-tag">כתיבת לומדות</span>
+          <span class="skill-tag">הנגשת ידע מקצועי</span>
+          <span class="skill-tag">תוכן דיגיטלי</span>
+        </div>
+
+        <p class="section-label">כלבנות וטיפול בעלי חיים</p>
+        <div class="skills-tags">
+          <span class="skill-tag">אילוף כלבים</span>
+          <span class="skill-tag">כלבנות טיפולית</span>
+          <span class="skill-tag">חינוך חיובי</span>
+          <span class="skill-tag">התנהגות בעלי חיים</span>
+          <span class="skill-tag">מחקר התנהגותי</span>
+        </div>
+
+        <p class="section-label">ניהול וטכנולוגיה</p>
+        <div class="skills-tags">
+          <span class="skill-tag">ניהול צוות</span>
+          <span class="skill-tag">ניהול פרויקטים</span>
+          <span class="skill-tag">תקשורת בינאישית</span>
+          <span class="skill-tag">פיתוח Front-End</span>
+          <span class="skill-tag">ארכיטקטורת ממשקים</span>
+        </div>
+      </div>
+
+    </div><!-- /skills-grid -->
+  </section>
+
+  <!-- ======================================================= SECTION 5: CONTACT -->
+  <section class="section" id="sec-contact">
+    <div class="contact-section">
+      <div class="contact-card-big">
+        <div class="avatar">ט</div>
+        <h2>טניה טבקמכר</h2>
+        <div class="subtitle">מורה לחקלאות וכלבנות · חוקרת · מרצה</div>
+
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="ci-icon">📞</div>
+            <div>
+              <div class="ci-label">טלפון</div>
+              <div class="ci-value"><a href="tel:0542166396">0542-166-396</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">✉️</div>
+            <div>
+              <div class="ci-label">דוא"ל</div>
+              <div class="ci-value"><a href="mailto:tanyatabakmaher@gmail.com">tanyatabakmaher@gmail.com</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">📍</div>
+            <div>
+              <div class="ci-label">מיקום</div>
+              <div class="ci-value">תל אביב</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">🌐</div>
+            <div>
+              <div class="ci-label">אתר</div>
+              <div class="ci-value"><a href="https://www.canaanspirit.co.il/" target="_blank">www.canaanspirit.co.il</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">▶️</div>
+            <div>
+              <div class="ci-label">יוטיוב</div>
+              <div class="ci-value"><a href="https://www.youtube.com/@canaanspirit" target="_blank">youtube.com/@canaanspirit</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /cv-wrapper -->
+
+
+
+<script>
+// ── ניווט בין טאבים ──────────────────────────────────────────
+function showSection(id, btn) {
+  // הסתרת כל הסקשנים
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  // הסרת active מכל הטאבים
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  // הצגת הסקשן הנבחר
+  document.getElementById('sec-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ── פתיחה/סגירה של פריטי ניסיון בטיימליין ──────────────────
+function toggleTl(item) {
+  item.classList.toggle('open');
+}
+
+// ── פתיחה/סגירה של פריטי השכלה ──────────────────────────────
+function toggleEdu(item) {
+  item.classList.toggle('open');
+}
+
+// ── אנימציית כניסה עם IntersectionObserver ───────────────────
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.08 });
+
+// הפעלת אנימציה על כרטיסים
+document.querySelectorAll('.research-card, .info-card, .tl-item, .edu-item, .tool-row').forEach((el, i) => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(16px)';
+  el.style.transition = `opacity .45s ease ${i * 0.04}s, transform .45s ease ${i * 0.04}s`;
+  io.observe(el);
+});
+</script>
+
+</body>
+</html>
