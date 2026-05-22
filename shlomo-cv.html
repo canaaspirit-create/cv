@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>שלמה קליחמן — קורות חיים</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4f8;direction:rtl}
+#cv-root{max-width:900px;margin:0 auto;border-radius:12px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.18)}
+@media(max-width:600px){#cv-root{border-radius:0;box-shadow:none;max-width:100%}}
+.wrap{padding:16px}
+@media(max-width:600px){.wrap{padding:8px}}
+
+@keyframes slideL{from{transform:translateX(-40px);opacity:0}to{transform:translateX(0);opacity:1}}
+@keyframes slideR{from{transform:translateX(40px);opacity:0}to{transform:translateX(0);opacity:1}}
+@keyframes slideU{from{transform:translateY(20px);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes barFill{from{width:0}to{}}
+@keyframes dotPop{0%{transform:scale(0)}70%{transform:scale(1.3)}100%{transform:scale(1)}}
+.fwd{animation:slideL .35s cubic-bezier(.4,0,.2,1) both}
+.bwd{animation:slideR .35s cubic-bezier(.4,0,.2,1) both}
+.su1{animation:slideU .4s .05s both}
+.su2{animation:slideU .4s .15s both}
+.su3{animation:slideU .4s .25s both}
+.su4{animation:slideU .4s .35s both}
+.su5{animation:slideU .4s .45s both}
+.su6{animation:slideU .4s .55s both}
+.nb{background:none;border:none;cursor:pointer;font-family:inherit;transition:all .2s}
+.nb:hover{opacity:.75}
+.nb:active{transform:scale(.97)}
+
+/* NAV */
+.cv-nav{background:#1e2028;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.nav-pages{display:flex;gap:3px;flex-wrap:wrap}
+.nav-pg{color:rgba(255,255,255,.55);background:transparent;border-radius:6px;padding:5px 10px;font-size:12.5px;font-weight:400;border:none;cursor:pointer;font-family:inherit;transition:all .2s;white-space:nowrap}
+.nav-pg.active{color:#fff;background:#3D9BC1;font-weight:600}
+.nav-arrows{display:flex;gap:8px;align-items:center;flex-shrink:0}
+.nav-dots{display:flex;gap:5px}
+.nav-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.25);cursor:pointer;transition:all .3s;border:none;padding:0}
+.nav-dot.active{background:#3D9BC1}
+.nav-arr{color:#fff;font-size:18px;padding:2px 6px;opacity:1;transition:opacity .2s}
+.nav-arr:disabled{opacity:.25;cursor:default}
+@media(max-width:480px){
+  .nav-pg{font-size:11px;padding:4px 7px}
+  .nav-dots{display:none}
+  .nav-arr{display:none}
+}
+
+/* HERO */
+.hero{background:#1e2028;min-height:520px;display:flex;align-items:center;justify-content:center;padding:40px 24px;position:relative;overflow:hidden;direction:ltr}
+.hero-glow{position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 60% 30%,rgba(61,155,193,.2) 0%,transparent 65%)}
+.hero-inner{text-align:center;position:relative;z-index:1;width:100%;max-width:480px;margin:0 auto;display:flex;flex-direction:column;align-items:center}
+.hero-photo{width:90px;height:90px;border-radius:50%;object-fit:cover;border:3px solid #3D9BC1;display:block;margin:0 auto 20px}
+.hero-name{color:#fff;font-size:38px;font-weight:700;margin:0 0 8px;letter-spacing:-1px;line-height:1.1}
+.hero-title{color:#3D9BC1;font-size:16px;margin-bottom:5px;font-weight:500}
+.hero-sub{color:rgba(255,255,255,.45);font-size:13px;margin-bottom:28px}
+.hero-contacts{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-bottom:32px;direction:ltr}
+.hero-contact{display:flex;align-items:center;gap:6px;color:rgba(255,255,255,.7);font-size:13px}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;direction:ltr}
+.hero-btn-main{background:#3D9BC1;color:#fff;border-radius:8px;padding:11px 22px;font-size:14px;font-weight:600;border:none;cursor:pointer;font-family:inherit;transition:all .2s}
+.hero-btn-sec{background:transparent;border:1.5px solid rgba(61,155,193,.5);color:#3D9BC1;border-radius:8px;padding:10px 22px;font-size:14px;cursor:pointer;font-family:inherit;transition:all .2s}
+.hero-btn-main:hover,.hero-btn-sec:hover{opacity:.85;transform:translateY(-1px)}
+@media(max-width:480px){
+  .hero{min-height:480px;padding:32px 16px}
+  .hero-name{font-size:30px}
+  .hero-photo{width:76px;height:76px}
+  .hero-contacts{gap:12px}
+  .hero-contact{font-size:12px}
+}
+
+/* ABOUT */
+.about{background:#f0f4f8;min-height:520px;padding:28px 28px}
+.about-grid{display:grid;grid-template-columns:1fr 240px;gap:22px}
+.sec-title{color:#1a1f2e;font-size:21px;font-weight:700;margin:0 0 16px;border-bottom:3px solid #3D9BC1;padding-bottom:8px}
+.about-text{color:#444;line-height:1.85;font-size:15px;margin-bottom:14px}
+.about-tags{margin-top:22px;display:flex;flex-wrap:wrap;gap:9px}
+.about-tag{background:#3D9BC1;color:#fff;border-radius:20px;padding:6px 16px;font-size:13px;font-weight:500}
+.sidebar-card{background:#252830;border-radius:12px;padding:20px;color:#ccc;align-self:start}
+.sidebar-name{text-align:center;margin-bottom:14px;padding-bottom:12px;border-bottom:2px solid #3D9BC1}
+.sidebar-photo{width:56px;height:56px;border-radius:50%;object-fit:cover;border:2px solid #3D9BC1;margin:0 auto 10px;display:block}
+.sidebar-nm{font-size:17px;font-weight:700;color:#fff}
+.sidebar-role{font-size:11px;color:#3D9BC1;margin-top:4px}
+.sidebar-row{display:flex;align-items:center;gap:8px;margin-bottom:9px;font-size:12.5px}
+@media(max-width:600px){
+  .about{padding:20px 16px;min-height:auto}
+  .about-grid{grid-template-columns:1fr}
+  .sidebar-card{order:-1}
+  .sidebar-name{display:flex;align-items:center;gap:12px;text-align:right;padding-bottom:10px}
+  .sidebar-photo{margin:0;width:44px;height:44px}
+}
+
+/* EXPERIENCE */
+.exp-wrap{background:#fff;min-height:520px;display:grid;grid-template-columns:230px 1fr}
+.exp-sidebar{background:#252830;padding:18px 12px;overflow-y:auto}
+.exp-sidebar-title{color:#3D9BC1;font-size:12.5px;font-weight:700;margin-bottom:12px;text-align:center;border-bottom:1px solid #344050;padding-bottom:7px}
+.exp-row{cursor:pointer;border-radius:7px;padding:9px 10px;transition:background .2s;margin-bottom:5px}
+.exp-row:hover,.exp-row.active{background:rgba(61,155,193,.15)}
+.exp-period{font-size:10.5px;color:#3D9BC1;font-weight:600;margin-bottom:2px}
+.exp-jobtitle{font-size:12px;line-height:1.3;color:#ccc;font-weight:400}
+.exp-jobtitle.active-t{color:#fff;font-weight:600}
+.exp-company{font-size:10.5px;color:rgba(255,255,255,.38);margin-top:2px}
+.exp-detail{padding:26px 28px;direction:rtl;overflow-y:auto}
+.exp-d-period{font-size:13px;color:#3D9BC1;font-weight:600;margin-bottom:7px}
+.exp-d-title{font-size:19px;font-weight:700;color:#1a1f2e;margin:0 0 7px;line-height:1.3}
+.exp-d-co{font-size:14px;color:#3D9BC1;margin-bottom:18px}
+.exp-bullets{list-style:none;padding:0;margin:0}
+.exp-bullet{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px}
+.exp-dot{width:8px;height:8px;border-radius:50%;background:#3D9BC1;flex-shrink:0;margin-top:6px}
+.exp-bullet-text{font-size:14.5px;color:#444;line-height:1.65}
+@media(max-width:600px){
+  .exp-wrap{grid-template-columns:1fr;min-height:auto}
+  .exp-sidebar{display:flex;flex-direction:column;padding:12px 10px;max-height:none}
+  .exp-sidebar-title{display:none}
+  .exp-tabs{display:flex;overflow-x:auto;gap:6px;padding-bottom:4px;-webkit-overflow-scrolling:touch}
+  .exp-tabs::-webkit-scrollbar{height:3px}
+  .exp-tab{flex-shrink:0;background:rgba(61,155,193,.12);border:1px solid rgba(61,155,193,.3);border-radius:16px;padding:5px 12px;font-size:11.5px;color:#ccc;cursor:pointer;white-space:nowrap;font-family:inherit}
+  .exp-tab.active{background:#3D9BC1;color:#fff;border-color:#3D9BC1}
+  .exp-rows-desktop{display:none}
+  .exp-detail{padding:18px 16px}
+  .exp-d-title{font-size:16px}
+  .exp-bullet-text{font-size:13.5px}
+}
+
+/* SKILLS */
+.skills-wrap{background:#f0f4f8;min-height:520px;padding:28px 28px;display:grid;grid-template-columns:1fr 220px;gap:26px}
+.skill-row{margin-bottom:18px}
+.skill-label-row{display:flex;justify-content:space-between;margin-bottom:6px}
+.skill-name{font-size:14px;color:#1a1f2e;font-weight:500}
+.skill-pct{font-size:13px;color:#3D9BC1;font-weight:600}
+.skill-track{background:#dde4ea;border-radius:10px;height:8px;overflow:hidden}
+.skill-fill{height:8px;background:#3D9BC1;border-radius:10px;animation:barFill .9s both}
+.tech-title{color:#1a1f2e;font-size:15px;font-weight:700;margin:22px 0 10px}
+.tags-wrap{line-height:2.1}
+.tag{display:inline-block;background:rgba(61,155,193,.12);color:#3D9BC1;border-radius:20px;padding:3px 10px;font-size:11.5px;margin:2px 2px}
+.lang-card{background:#252830;border-radius:12px;padding:20px;align-self:start}
+.lang-title{color:#3D9BC1;font-size:13px;font-weight:700;text-align:center;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid #344050}
+.lang-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px}
+.lang-name{font-size:14px;color:#ddd}
+.lang-dots{display:flex;gap:5px}
+.lang-dot-el{width:11px;height:11px;border-radius:50%;border:2px solid #3D9BC1}
+.lang-dot-el.on{background:#3D9BC1}
+@media(max-width:600px){
+  .skills-wrap{grid-template-columns:1fr;padding:20px 16px;gap:16px;min-height:auto}
+  .lang-card{padding:16px}
+}
+
+/* PROJECTS */
+.proj-wrap{background:#f0f4f8;min-height:520px;padding:28px 28px}
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.proj-card{border-radius:10px;padding:18px;transition:transform .2s,border-color .2s;border:1.5px solid rgba(61,155,193,.2);background:#fff;cursor:default}
+.proj-card:hover{transform:translateY(-4px);border-color:#3D9BC1}
+.proj-title{font-size:15px;font-weight:700;color:#1a1f2e;margin-bottom:8px;line-height:1.4}
+.proj-tech{font-size:12px;color:#3D9BC1;margin-bottom:12px;direction:ltr;text-align:right}
+.proj-desc{font-size:13.5px;color:#555;line-height:1.65}
+@media(max-width:600px){
+  .proj-wrap{padding:20px 16px;min-height:auto}
+  .proj-grid{grid-template-columns:1fr}
+}
+
+/* EDUCATION */
+.edu-wrap{background:#f0f4f8;min-height:520px;padding:28px 28px}
+.edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:22px}
+.edu-card{background:#fff;border-radius:10px;padding:20px;border-right:4px solid #3D9BC1}
+.edu-icon{font-size:24px;margin-bottom:10px}
+.edu-title{font-size:15px;font-weight:700;color:#1a1f2e;margin-bottom:6px;line-height:1.35}
+.edu-inst{font-size:13px;color:#3D9BC1;margin-bottom:4px}
+.edu-year{font-size:12px;color:#6b7a8d}
+.stats-bar{background:#252830;border-radius:12px;padding:20px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;text-align:center}
+.stat-num{font-size:28px;font-weight:700;color:#3D9BC1}
+.stat-lbl{font-size:12px;color:rgba(255,255,255,.55);margin-top:4px}
+@media(max-width:600px){
+  .edu-wrap{padding:20px 16px;min-height:auto}
+  .edu-grid{grid-template-columns:1fr 1fr}
+  .stat-num{font-size:22px}
+  .stat-lbl{font-size:11px}
+}
+@media(max-width:360px){
+  .edu-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div id="cv-root"></div>
+</div>
+<script>
+const PHOTO='https://canaaspirit-create.github.io/cv/shlomo.png';
+const AC='#3D9BC1';
+const EXP=[
+  {p:'2018 – כיום',t:'Digital Project Director / Technical Product Lead',co:'CGSpark | תל אביב / Remote',b:['הובלת פרויקטים: Web, Mobile, SaaS, CRM, אינטגרציות ופתרונות ענן','תרגום דרישות עסקיות לאפיון, User Flows, ארכיטקטורה ומשימות פיתוח','ניהול צוותי פיתוח, עיצוב ו-QA; ליווי ארכיטקטורה, API, CRM וענן','שימוש שוטף ב-AI (Claude, ChatGPT, Codex) לפיתוח מואץ']},
+  {p:'2019 – 2022',t:'Marketing Project & Tech Lead',co:'eToro | בני ברק',b:['הובלת אקוסיסטם דיגיטלי שיווקי ב-FinTech — אתרים ואוטומציות','ניהול אינטגרציות Salesforce; בניית CI/CD ובקרת איכות']},
+  {p:'2021 – 2023',t:'Digital & Project Manager',co:'GreenEx Energy | Remote',b:['ניהול פרויקטים דיגיטליים ואינטגרציות בין מחלקות','אפיון והטמעת ERP — Workflows, Data Mapping ו-Deployment']},
+  {p:'2012 – 2018',t:'Senior Frontend Developer & Team Lead',co:'William Hill Online | תל אביב',b:['פיתוח Web: HTML5, CSS3, JavaScript, Node.js, PHP','הובלת Frontend בישראל ובאוקראינה; הכנסת Agile ו-CI']},
+  {p:'2010 – 2012',t:'Full Stack Developer',co:'eToro',b:['פיתוח Frontend ו-Backend: C#, PHP, HTML, CSS, WordPress']},
+  {p:'2008 – 2010',t:'Full Stack Developer',co:'Comverse',b:['פיתוח Web: Classic ASP, PHP, HTML, CSS, JavaScript, SQL Server']}
+];
+const SKILLS=[{n:'Product & Architecture',p:92},{n:'Full Stack Development',p:88},{n:'Cloud & SaaS / AWS',p:82},{n:'AI-Native Development',p:90},{n:'הובלת צוותים & Delivery',p:85}];
+const TECH=['JavaScript','Node.js','React','HTML5','CSS3','PHP','C#','REST API','PostgreSQL','AWS Lambda','S3','CI/CD','Git','HubSpot','Salesforce','Claude','ChatGPT','Codex'];
+const LANGS=[{n:'עברית',d:5},{n:'אנגלית',d:5},{n:'רוסית',d:4}];
+const PROJS=[
+  {t:'CakeWalk Benefits — SaaS Integration Platform',tech:'AWS · PostgreSQL · HubSpot · CI/CD',d:'הובלת מערכת אינטגרציות — AWS, API, PostgreSQL; חיבורי HubSpot, Webhooks, מיפוי שדות ואימות נתונים.'},
+  {t:'Kiah Virtual Museum — 3D Web Platform',tech:'React · Three.js · AWS',d:'הובלת מוצר Web מבוסס React ו-Three.js — ארכיטקטורה רב-לשונית, ניהול נכסי ענן ו-UX.'},
+  {t:'Web/Mobile Systems & Integrations',tech:'React · Node.js · CRM/API',d:'פיתוח אתרים, אפליקציות, דשבורדים, Landing Page Systems ואינטגרציות CRM/API.'}
+];
+const EDU=[
+  {t:'Machine Learning for Product Managers',i:'Duke University',y:'2023',ic:'🎓'},
+  {t:'ניהול צוותים ומיומנויות ניהול',i:'המכללה האקדמית אונו',y:'2014',ic:'📚'},
+  {t:'Full Stack Web Developer',i:'FreeCodeCamp',y:'2016',ic:'💻'},
+  {t:'לימודי מדעי המחשב',i:'מכללת שבח',y:'2005',ic:'⚙️'}
+];
+const PAGES=['ראשי','תקציר','ניסיון','מיומנויות','פרויקטים','השכלה'];
+let cur=0,dir=1,selExp=0;
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight')nav(Math.min(cur+1,PAGES.length-1));
+  if(e.key==='ArrowLeft')nav(Math.max(cur-1,0));
+});
+
+function nav(t){if(t===cur||t<0||t>=PAGES.length)return;dir=t>cur?1:-1;cur=t;selExp=0;render();window.scrollTo({top:0,behavior:'smooth'});}
+
+function dots(d){return Array.from({length:5},(_,j)=>`<div class="lang-dot-el${j<d?' on':''}" style="animation:dotPop .3s ${.15+j*.08}s both"></div>`).join('')}
+
+function navHTML(){
+  return`<div class="cv-nav">
+    <div class="nav-pages">${PAGES.map((p,i)=>`<button class="nav-pg${i===cur?' active':''}" onclick="nav(${i})">${p}</button>`).join('')}</div>
+    <div class="nav-arrows">
+      <div class="nav-dots">${PAGES.map((_,i)=>`<button class="nav-dot${i===cur?' active':''}" onclick="nav(${i})" aria-label="${PAGES[i]}"></button>`).join('')}</div>
+      <button class="nb nav-arr" onclick="nav(cur-1)" ${cur===0?'disabled':''} aria-label="קודם">&#8594;</button>
+      <button class="nb nav-arr" onclick="nav(cur+1)" ${cur===PAGES.length-1?'disabled':''} aria-label="הבא">&#8592;</button>
+    </div>
+  </div>`;
+}
+
+function heroHTML(){
+  return`<div class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-inner">
+      <img class="hero-photo su1" src="${PHOTO}" onerror="this.outerHTML='<div class=su1 style=width:90px;height:90px;border-radius:50%;background:#3D9BC1;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:700;color:#fff;margin:0_auto_20px>שק</div>'" />
+      <h1 class="hero-name su2">שלמה קליחמן</h1>
+      <div class="hero-title su3">Technical Product Lead</div>
+      <div class="hero-sub su4">AI-Native SaaS &amp; Full Stack</div>
+      <div class="hero-contacts su5">
+        <div class="hero-contact">📞 054-6522627</div>
+        <div class="hero-contact">✉ shlomo.kman@gmail.com</div>
+        <div class="hero-contact">📍 תל אביב / Remote</div>
+      </div>
+      <div class="hero-btns su6">
+        <button class="hero-btn-main" onclick="nav(2)">ניסיון תעסוקתי ←</button>
+        <button class="hero-btn-sec" onclick="nav(1)">תקציר מקצועי</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function aboutHTML(){
+  return`<div class="about">
+    <div class="about-grid">
+      <div>
+        <h2 class="sec-title su1">תקציר מקצועי</h2>
+        <p class="about-text su2">מוביל טכנולוגי ומוצרי עם ניסיון של מעל 7 שנים בהובלת פרויקטים דיגיטליים מורכבים — Web, Mobile, SaaS, אינטגרציות ופתרונות ענן. רקע Hands-on בפיתוח Full Stack ו-Frontend Leadership, עם יכולת לחבר בין חזון מוצרי, ארכיטקטורה טכנולוגית וביצוע בפועל.</p>
+        <p class="about-text su3">עובד ישירות מול Founders, מנהלי מוצר, צוותי פיתוח ולקוחות. משתמש שוטף בכלי AI לפיתוח מואץ, אפיון ותיעוד.</p>
+        <div class="about-tags su4">${['7+ שנות ניסיון','Full Stack','Product Lead','AI-Native','Cloud & SaaS'].map(s=>`<span class="about-tag">${s}</span>`).join('')}</div>
+      </div>
+      <div class="sidebar-card su2">
+        <div class="sidebar-name">
+          <img class="sidebar-photo" src="${PHOTO}" onerror="this.style.display='none'" />
+          <div><div class="sidebar-nm">שלמה קליחמן</div><div class="sidebar-role">Technical Product Lead</div></div>
+        </div>
+        ${[['📞','054-6522627'],['✉','shlomo.kman@gmail.com'],['🔗','linkedin.com/in/shlomo-kalichman'],['📍','תל אביב / Remote']].map(([ic,tx])=>`<div class="sidebar-row"><span>${ic}</span><span style="direction:ltr;font-size:12.5px">${tx}</span></div>`).join('')}
+      </div>
+    </div>
+  </div>`;
+}
+
+function expDetailHTML(e){
+  return`<div class="fwd">
+    <div class="exp-d-period">${e.p}</div>
+    <h2 class="exp-d-title">${e.t}</h2>
+    <div class="exp-d-co">${e.co}</div>
+    <ul class="exp-bullets">${e.b.map((b,i)=>`<li class="exp-bullet" style="animation:slideU .35s ${i*.09}s both"><span class="exp-dot"></span><span class="exp-bullet-text">${b}</span></li>`).join('')}</ul>
+  </div>`;
+}
+
+function expHTML(){
+  const isMobile=window.innerWidth<=600;
+  if(isMobile){
+    return`<div class="exp-wrap" style="display:block">
+      <div class="exp-sidebar">
+        <div class="exp-tabs">${EXP.map((ex,i)=>`<button class="exp-tab${i===selExp?' active':''}" onclick="selectExp(${i})">${ex.p}</button>`).join('')}</div>
+      </div>
+      <div id="exp-detail" class="exp-detail">${expDetailHTML(EXP[selExp])}</div>
+    </div>`;
+  }
+  return`<div class="exp-wrap">
+    <div class="exp-sidebar">
+      <div class="exp-sidebar-title">ניסיון תעסוקתי</div>
+      ${EXP.map((ex,i)=>`<div class="exp-row su${Math.min(i+1,6)}${i===selExp?' active':''}" onclick="selectExp(${i})">
+        <div class="exp-period">${ex.p}</div>
+        <div class="exp-jobtitle${i===selExp?' active-t':''}">${ex.t}</div>
+        <div class="exp-company">${ex.co.split('|')[0].trim()}</div>
+      </div>`).join('')}
+    </div>
+    <div id="exp-detail" class="exp-detail">${expDetailHTML(EXP[selExp])}</div>
+  </div>`;
+}
+
+function skillsHTML(){
+  return`<div class="skills-wrap">
+    <div>
+      <h2 class="sec-title su1">מיומנויות</h2>
+      ${SKILLS.map((s,i)=>`<div class="skill-row su${i+2}">
+        <div class="skill-label-row"><span class="skill-name">${s.n}</span><span class="skill-pct">${s.p}%</span></div>
+        <div class="skill-track"><div class="skill-fill" style="width:${s.p}%;animation-delay:${.1+i*.15}s"></div></div>
+      </div>`).join('')}
+      <div class="tech-title">טכנולוגיות</div>
+      <div class="tags-wrap">${TECH.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+    </div>
+    <div class="lang-card su2">
+      <div class="lang-title">שפות</div>
+      ${LANGS.map((l,i)=>`<div class="lang-row su${i+2}"><span class="lang-name">${l.n}</span><div class="lang-dots">${dots(l.d)}</div></div>`).join('')}
+    </div>
+  </div>`;
+}
+
+function projHTML(){
+  return`<div class="proj-wrap">
+    <h2 class="sec-title su1">פרויקטים נבחרים</h2>
+    <div class="proj-grid">
+      ${PROJS.map((p,i)=>`<div class="proj-card su${i+2}">
+        <div class="proj-title">${p.t}</div>
+        <div class="proj-tech">${p.tech}</div>
+        <p class="proj-desc">${p.d}</p>
+      </div>`).join('')}
+    </div>
+  </div>`;
+}
+
+function eduHTML(){
+  return`<div class="edu-wrap">
+    <h2 class="sec-title su1">השכלה והסמכות</h2>
+    <div class="edu-grid">
+      ${EDU.map((e,i)=>`<div class="edu-card su${i+2}">
+        <div class="edu-icon">${e.ic}</div>
+        <div class="edu-title">${e.t}</div>
+        <div class="edu-inst">${e.i}</div>
+        <div class="edu-year">${e.y}</div>
+      </div>`).join('')}
+    </div>
+    <div class="stats-bar su6">
+      ${[['7+','שנות ניסיון'],['6','תפקידים'],['3','פרויקטים']].map(([n,l])=>`<div><div class="stat-num">${n}</div><div class="stat-lbl">${l}</div></div>`).join('')}
+    </div>
+  </div>`;
+}
+
+function selectExp(i){
+  selExp=i;
+  document.querySelectorAll('.exp-row,.exp-tab').forEach((el,idx)=>{
+    const isActive=idx===i;
+    el.classList.toggle('active',isActive);
+    const t=el.querySelector('.exp-jobtitle');
+    if(t){t.classList.toggle('active-t',isActive);}
+  });
+  const d=document.getElementById('exp-detail');
+  if(d) d.innerHTML=expDetailHTML(EXP[i]);
+}
+
+function render(){
+  const pages=[heroHTML,aboutHTML,expHTML,skillsHTML,projHTML,eduHTML];
+  document.getElementById('cv-root').innerHTML=navHTML()+`<div class="${dir>0?'fwd':'bwd'}">${pages[cur]()}</div>`;
+}
+
+window.nav=nav;
+window.selectExp=selectExp;
+render();
+</script>
+</body>
+</html>
