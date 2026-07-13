@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>טניה טבקמכר | מורה לחקלאות וכלבנות, חוקרת התנהגות בעלי חיים ומרצה</title>
+<meta name="description" content="קורות חיים דיגיטליים של טניה טבקמכר — מורה לחקלאות בהתמחות כלבנות, חוקרת התנהגות בעלי חיים בתואר שני בזואולוגיה, ומרצה ומנחת סדנאות בתחום הכלבנות והאילוף.">
+<meta property="og:title" content="טניה טבקמכר | קורות חיים דיגיטליים">
+<meta property="og:description" content="מורה לחקלאות בהתמחות כלבנות, חוקרת התנהגות בעלי חיים ומרצה ומנחת סדנאות בתחום הכלבנות והאילוף.">
+<meta property="og:type" content="profile">
+<meta property="og:locale" content="he_IL">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%2316233A'/%3E%3Ctext x='32' y='42' font-size='30' font-family='Georgia,serif' fill='%23E3C08B' text-anchor='middle'%3Eט%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;600;700;800&family=Assistant:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-900:#16233A;
+    --navy-800:#1F3153;
+    --navy-700:#28405F;
+    --sand-300:#E3C08B;
+    --sand-500:#C79A5D;
+    --sand-100:#F3E7D3;
+    --paper:#FBFAF7;
+    --ink-900:#20242C;
+    --ink-600:#565F6B;
+    --forest-600:#3C5744;
+    --line:#E4DED2;
+    --radius:14px;
+    --shadow:0 10px 30px -12px rgba(22,35,58,.25);
+    --dur:.6s;
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Assistant',"Segoe UI",Arial,sans-serif;
+    background:var(--paper);
+    color:var(--ink-900);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4,.display{font-family:'Rubik','Segoe UI',Arial,sans-serif;}
+  h1,h2,h3,h4{margin:0;color:var(--ink-900);}
+  p{margin:0 0 1em;}
+  a{color:inherit;}
+  ul{margin:0;padding:0;list-style:none;}
+  img{max-width:100%;display:block;}
+  button{font-family:inherit;}
+
+  .visually-hidden{
+    position:absolute!important;width:1px;height:1px;overflow:hidden;
+    clip:rect(0 0 0 0);white-space:nowrap;
+  }
+
+  a.skip-link{
+    position:absolute; right:1rem; top:-60px;
+    background:var(--sand-500); color:var(--navy-900);
+    padding:.7rem 1.2rem; border-radius:8px; font-weight:600;
+    z-index:1000; transition:top .25s var(--ease);
+  }
+  a.skip-link:focus{top:1rem;}
+
+  :focus-visible{outline:3px solid var(--sand-500); outline-offset:3px;}
+
+  .eyebrow{
+    display:inline-block; font-size:.85rem; font-weight:700; letter-spacing:.04em;
+    color:var(--sand-500); text-transform:none; margin-bottom:.6rem;
+  }
+  .eyebrow.on-dark{color:var(--sand-300);}
+
+  .section-heading{font-size:clamp(1.6rem,3vw,2.2rem); font-weight:700; margin-bottom:1.2rem;}
+  .section-heading.on-dark{color:#fff;}
+
+  .container{max-width:1080px; margin:0 auto; padding:0 1.5rem;}
+  section{padding:5rem 0;}
+  @media (max-width:640px){ section{padding:3.2rem 0;} }
+
+  /* ===== Sticky nav ===== */
+  .site-nav{
+    position:fixed; inset-inline:0; top:0; z-index:900;
+    background:rgba(22,35,58,0); transition:background .35s var(--ease), box-shadow .35s var(--ease), backdrop-filter .35s var(--ease);
+    padding:.9rem 0;
+  }
+  .site-nav.scrolled{
+    background:rgba(22,35,58,.92);
+    backdrop-filter:blur(8px);
+    box-shadow:0 4px 20px rgba(0,0,0,.15);
+    padding:.55rem 0;
+  }
+  .nav-inner{
+    max-width:1080px; margin:0 auto; padding:0 1.5rem;
+    display:flex; align-items:center; justify-content:space-between; gap:1rem;
+  }
+  .nav-brand{
+    color:#fff; font-weight:700; font-size:1rem; text-decoration:none;
+    display:flex; align-items:center; gap:.5rem; opacity:0; transition:opacity .3s;
+  }
+  .site-nav.scrolled .nav-brand{opacity:1;}
+  .nav-brand .dot{width:8px;height:8px;border-radius:50%;background:var(--sand-500);}
+  .nav-links{display:flex; gap:.3rem; list-style:none; margin:0; padding:0;}
+  .nav-links a{
+    color:#EDEFF3; text-decoration:none; font-weight:600; font-size:.95rem;
+    padding:.5rem .9rem; border-radius:20px; transition:background .25s,color .25s;
+  }
+  .nav-links a:hover, .nav-links a.active{background:var(--sand-500); color:var(--navy-900);}
+  .nav-toggle{
+    display:none; background:none; border:2px solid var(--sand-300); color:#fff;
+    border-radius:8px; width:42px; height:38px; cursor:pointer; font-size:1.2rem;
+  }
+  @media (max-width:820px){
+    .nav-links{
+      position:fixed; inset-inline:0; top:64px; background:var(--navy-900);
+      flex-direction:column; align-items:stretch; padding:.6rem 1rem 1.2rem;
+      transform:translateY(-130%); opacity:0; transition:transform .3s var(--ease), opacity .3s var(--ease);
+    }
+    .nav-links.open{transform:translateY(0); opacity:1;}
+    .nav-links a{text-align:center; padding:.8rem;}
+    .nav-toggle{display:block;}
+  }
+
+  /* ===== Hero ===== */
+  .hero{
+    position:relative; overflow:hidden; background:radial-gradient(120% 140% at 15% -10%, var(--navy-700), var(--navy-900) 60%);
+    color:#fff; padding:8.5rem 0 6rem; text-align:center;
+  }
+  .hero-decor{position:absolute; inset:0; opacity:.16; pointer-events:none;}
+  .hero-inner{position:relative; z-index:2;}
+  .monogram{
+    width:96px; height:96px; margin:0 auto 1.6rem; border-radius:50%;
+    border:2px solid var(--sand-300); display:flex; align-items:center; justify-content:center;
+    font-family:'Rubik',serif; font-size:2.2rem; font-weight:700; color:var(--sand-300);
+    background:rgba(255,255,255,.03);
+  }
+  .hero h1{font-size:clamp(2.1rem,5.5vw,3.4rem); font-weight:800; letter-spacing:-.01em;}
+  .hero .role-line{
+    margin-top:.9rem; font-size:clamp(1rem,2.4vw,1.25rem); font-weight:600; color:var(--sand-300);
+  }
+  .hero .role-line span{margin:0 .5rem; opacity:.5;}
+  .hero .tagline{
+    max-width:640px; margin:1.4rem auto 0; color:#D8DCE4; font-size:1.05rem;
+  }
+  .hero-nav{
+    display:flex; flex-wrap:wrap; gap:.8rem; justify-content:center; margin-top:2.2rem;
+  }
+  .btn{
+    display:inline-flex; align-items:center; gap:.5rem; text-decoration:none; font-weight:700;
+    padding:.75rem 1.4rem; border-radius:30px; border:2px solid transparent; cursor:pointer;
+    font-size:.95rem; transition:transform .2s var(--ease), background .2s, color .2s, border-color .2s;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-solid{background:var(--sand-500); color:var(--navy-900);}
+  .btn-solid:hover{background:var(--sand-300);}
+  .btn-outline{border-color:rgba(255,255,255,.4); color:#fff;}
+  .btn-outline:hover{border-color:var(--sand-300); color:var(--sand-300);}
+
+  .scroll-cue{
+    margin-top:3rem; display:inline-block; color:var(--sand-300); opacity:.8;
+    animation:bounce 2.4s ease-in-out infinite;
+  }
+  @keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(8px);}}
+
+  /* ===== reveal-on-scroll ===== */
+  .reveal{opacity:0; transform:translateY(24px); transition:opacity .7s var(--ease), transform .7s var(--ease);}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  /* ===== About ===== */
+  #about{background:var(--paper);}
+  .about-grid{display:grid; grid-template-columns:1.3fr 1fr; gap:3rem; align-items:start;}
+  @media (max-width:800px){.about-grid{grid-template-columns:1fr;}}
+  .about-text p{color:var(--ink-600); font-size:1.05rem;}
+  .tag-row{display:flex; flex-wrap:wrap; gap:.6rem; margin-top:1.4rem;}
+  .tag{
+    background:var(--sand-100); color:var(--navy-800); font-weight:600; font-size:.88rem;
+    padding:.5rem 1rem; border-radius:20px; border:1px solid var(--sand-500);
+  }
+  .quickfacts{
+    background:#fff; border:1px solid var(--line); border-radius:var(--radius);
+    padding:1.6rem; box-shadow:var(--shadow);
+  }
+  .quickfacts dt{font-size:.8rem; font-weight:700; color:var(--sand-500); margin-top:1rem;}
+  .quickfacts dt:first-child{margin-top:0;}
+  .quickfacts dd{margin:.2rem 0 0; color:var(--ink-900); font-weight:600;}
+
+  /* ===== Timeline (signature element) ===== */
+  #experience{background:var(--paper);}
+  .timeline{position:relative; margin-top:2.6rem; padding-inline-end:2.4rem;}
+  .timeline::before{
+    content:""; position:absolute; top:6px; bottom:6px; right:9px; width:2px;
+    background:linear-gradient(var(--sand-500), var(--line));
+  }
+  .tl-item{position:relative; padding-inline-end:2.6rem; margin-bottom:2.2rem;}
+  .tl-item:last-child{margin-bottom:0;}
+  .tl-node{
+    position:absolute; right:0; top:6px; width:20px; height:20px;
+  }
+  .tl-card{
+    background:#fff; border:1px solid var(--line); border-radius:var(--radius);
+    padding:1.4rem 1.6rem; box-shadow:var(--shadow);
+  }
+  .tl-head{display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:.5rem;}
+  .tl-role{font-size:1.1rem; font-weight:700;}
+  .tl-org{color:var(--forest-600); font-weight:600; font-size:.95rem; margin-top:.15rem;}
+  .tl-dates{
+    font-weight:700; font-size:.85rem; color:var(--navy-800); background:var(--sand-100);
+    padding:.25rem .7rem; border-radius:12px; white-space:nowrap;
+  }
+  .tl-desc{
+    color:var(--ink-600); margin-top:.7rem; font-size:.98rem;
+    display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden;
+  }
+  .tl-desc.expanded{display:block; -webkit-line-clamp:unset; overflow:visible;}
+  .tl-toggle{
+    margin-top:.6rem; background:none; border:none; color:var(--sand-500); font-weight:700;
+    cursor:pointer; padding:0; font-size:.9rem; text-decoration:underline;
+  }
+  .tl-toggle:hover{color:var(--navy-800);}
+
+  /* ===== Education ===== */
+  #education{background:var(--sand-100);}
+  .edu-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.2rem; margin-top:2.2rem;}
+  .edu-card{
+    background:#fff; border-radius:var(--radius); padding:1.4rem 1.5rem; border:1px solid var(--line);
+    box-shadow:var(--shadow);
+  }
+  .edu-dates{font-size:.82rem; font-weight:700; color:var(--sand-500);}
+  .edu-title{font-weight:700; margin-top:.35rem; font-size:1.02rem;}
+  .edu-org{color:var(--ink-600); font-size:.92rem; margin-top:.25rem;}
+
+  /* ===== Military ===== */
+  #military{background:var(--paper); padding-top:0;}
+  .military-card{
+    display:flex; flex-wrap:wrap; gap:1rem 1.6rem; align-items:center; justify-content:space-between;
+    background:#fff; border:1px dashed var(--sand-500); border-radius:var(--radius);
+    padding:1.3rem 1.6rem; margin-top:1.6rem;
+  }
+  .military-card .mtitle{font-weight:700;}
+  .military-card .morg{color:var(--ink-600); font-size:.92rem; margin-top:.2rem;}
+  .military-card .mdates{font-weight:700; color:var(--navy-800); font-size:.85rem;}
+  .military-card p{margin:0; color:var(--ink-600); font-size:.94rem; flex-basis:100%;}
+
+  /* ===== Skills (dark band) ===== */
+  #skills{background:var(--navy-900); color:#fff;}
+  .skill-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.4rem; margin-top:2.2rem;}
+  .skill-card{
+    background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.12); border-radius:var(--radius);
+    padding:1.3rem 1.4rem;
+  }
+  .skill-card h3{font-size:1rem; color:var(--sand-300); margin-bottom:.7rem;}
+  .skill-card ul li{
+    color:#D8DCE4; font-size:.93rem; padding-inline-start:1rem; position:relative; margin-bottom:.55rem;
+  }
+  .skill-card ul li::before{
+    content:""; position:absolute; right:0; top:.55em; width:6px; height:6px; border-radius:50%;
+    background:var(--sand-500);
+  }
+  .subsection-title{
+    font-size:.85rem; font-weight:700; color:var(--sand-300); margin:2.4rem 0 .8rem; letter-spacing:.03em;
+  }
+  .chip-row{display:flex; flex-wrap:wrap; gap:.6rem;}
+  .chip{
+    background:rgba(255,255,255,.06); border:1px solid rgba(227,192,139,.5); color:#fff;
+    padding:.5rem 1rem; border-radius:18px; font-size:.88rem; font-weight:600;
+  }
+
+  /* ===== Contact ===== */
+  #contact{background:var(--paper);}
+  .contact-lead{max-width:600px; color:var(--ink-600); font-size:1.05rem;}
+  .contact-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.1rem; margin-top:2.2rem;}
+  .contact-card{
+    display:flex; align-items:center; gap:.9rem; background:#fff; border:1px solid var(--line);
+    border-radius:var(--radius); padding:1.1rem 1.3rem; text-decoration:none; color:var(--ink-900);
+    box-shadow:var(--shadow); transition:transform .2s var(--ease), border-color .2s;
+  }
+  .contact-card:hover{transform:translateY(-3px); border-color:var(--sand-500);}
+  .contact-card .ic{
+    width:42px; height:42px; flex:none; border-radius:50%; background:var(--sand-100);
+    display:flex; align-items:center; justify-content:center; color:var(--sand-500);
+  }
+  .contact-card .lbl{font-size:.78rem; color:var(--ink-600); font-weight:700;}
+  .contact-card .val{font-weight:700; font-size:.98rem; word-break:break-word;}
+
+  /* ===== Back to top ===== */
+  .to-top{
+    position:fixed; bottom:22px; left:22px; z-index:800; width:46px; height:46px; border-radius:50%;
+    background:var(--navy-900); color:var(--sand-300); border:2px solid var(--sand-500);
+    display:flex; align-items:center; justify-content:center; cursor:pointer;
+    opacity:0; pointer-events:none; transform:translateY(10px);
+    transition:opacity .3s var(--ease), transform .3s var(--ease);
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+  }
+  .to-top.show{opacity:1; pointer-events:auto; transform:translateY(0);}
+
+  footer{
+    background:var(--navy-900); color:#B7BECB; text-align:center; padding:2rem 1rem; font-size:.85rem;
+  }
+  footer strong{color:#fff;}
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation-duration:.001ms!important; animation-iteration-count:1!important; transition-duration:.001ms!important; scroll-behavior:auto!important;}
+  }
+
+  @media print{
+    .site-nav,.to-top,.hero-decor,.scroll-cue,.nav-toggle{display:none!important;}
+    body{background:#fff;}
+    .hero{background:#fff!important; color:#000; padding:1.5rem 0;}
+    .hero .role-line, .hero .tagline{color:#333!important;}
+    .monogram{border-color:#333; color:#333;}
+    #skills{background:#fff!important; color:#000;}
+    .skill-card{border-color:#999; background:#fff;}
+    .skill-card h3, .skill-card ul li, .chip{color:#000!important;}
+    .chip{border-color:#999;}
+    section{padding:1.4rem 0; break-inside:avoid;}
+    .tl-card,.edu-card,.military-card,.contact-card{break-inside:avoid; box-shadow:none; border-color:#999;}
+    .tl-desc{display:block!important; -webkit-line-clamp:unset!important; overflow:visible!important;}
+    .tl-toggle{display:none;}
+    a{color:#000; text-decoration:underline;}
+  }
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">דלג לתוכן הראשי</a>
+
+<nav class="site-nav" id="siteNav" aria-label="ניווט ראשי">
+  <div class="nav-inner">
+    <a href="#home" class="nav-brand"><span class="dot" aria-hidden="true"></span> טניה טבקמכר</a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="פתיחת תפריט ניווט">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about" data-nav>פרופיל</a></li>
+      <li><a href="#experience" data-nav>ניסיון</a></li>
+      <li><a href="#education" data-nav>השכלה</a></li>
+      <li><a href="#skills" data-nav>כישורים</a></li>
+      <li><a href="#contact" data-nav>יצירת קשר</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="home">
+  <svg class="hero-decor" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+    <circle cx="40" cy="360" r="4" fill="#E3C08B"/><circle cx="90" cy="330" r="4" fill="#E3C08B"/>
+    <circle cx="150" cy="310" r="4" fill="#E3C08B"/><circle cx="220" cy="300" r="4" fill="#E3C08B"/>
+    <circle cx="300" cy="295" r="4" fill="#E3C08B"/><circle cx="390" cy="290" r="4" fill="#E3C08B"/>
+    <path d="M40 360 Q 90 330 150 310 T 300 295 T 390 290" stroke="#E3C08B" stroke-width="1.5" fill="none" opacity=".6"/>
+    <circle cx="700" cy="60" r="70" stroke="#E3C08B" stroke-width="1" fill="none" opacity=".5"/>
+    <circle cx="650" cy="140" r="30" stroke="#E3C08B" stroke-width="1" fill="none" opacity=".4"/>
+  </svg>
+  <div class="container hero-inner">
+    <div class="monogram" aria-hidden="true">ט</div>
+    <h1>טניה טבקמכר</h1>
+    <p class="role-line">מורה לחקלאות וכלבנות<span aria-hidden="true">|</span>חוקרת התנהגות בעלי חיים<span aria-hidden="true">|</span>מרצה ומנחת סדנאות</p>
+    <p class="tagline">מחברת בין הוראה בחינוך המיוחד, מחקר בהתנהגות בעלי חיים וכלבנות טיפולית — עם רקע קודם משמעותי בפיתוח תוכנה וניהול צוותי פיתוח.</p>
+    <div class="hero-nav">
+      <a href="#about" class="btn btn-solid">אודות</a>
+      <a href="#experience" class="btn btn-outline">ניסיון תעסוקתי</a>
+      <a href="#contact" class="btn btn-outline">יצירת קשר</a>
+    </div>
+    <span class="scroll-cue" aria-hidden="true">⌄</span>
+  </div>
+</header>
+
+<main id="main">
+
+  <section id="about">
+    <div class="container about-grid">
+      <div class="about-text reveal">
+        <span class="eyebrow">פרופיל מקצועי</span>
+        <h2 class="section-heading">מהוראה ומחקר ועד כלבנות טיפולית</h2>
+        <p>מרצה ומנחת סדנאות בתחום הכלבנות והאילוף, ומטפלת בעזרת כלבים בחינוך מיוחד. בעלת ניסיון בהוראה, הנחיית קבוצות, פיתוח תוכן לימודי וחווייתי, עבודה עם ילדים ונוער עם לקויות למידה, והנגשת ידע מקצועי בצורה ברורה ומעשית.</p>
+        <p>חוקרת התנהגות בעלי חיים במסגרת תואר שני מחקרי בזואולוגיה, עם התמחות בלמידה חברתית בין חולדות. מורה לכלבנות וחקלאות בתיכון בית אקשטיין, ומכינה תלמידים לבגרות ברמת 5 יחידות. במקביל עוסקת בכלבנות טיפולית, קורסים והרצאות בנושא אילוף ותקשורת עם כלבים. בעלת ניסיון קודם משמעותי בהייטק, בפיתוח ממשקים, ניהול צוותים והובלת פרויקטים טכנולוגיים.</p>
+        <div class="tag-row">
+          <span class="tag">הוראה וחינוך מיוחד</span>
+          <span class="tag">מחקר בהתנהגות בעלי חיים</span>
+          <span class="tag">כלבנות טיפולית</span>
+          <span class="tag">פיתוח Front-End</span>
+        </div>
+      </div>
+      <div class="quickfacts reveal" aria-label="פרטים מהירים">
+        <dl>
+          <dt>מיקום</dt><dd>תל אביב</dd>
+          <dt>שפות</dt><dd>עברית, רוסית, אנגלית</dd>
+          <dt>עיסוק נוכחי</dt><dd>הוראה, מחקר וכלבנות טיפולית</dd>
+          <dt>אתר</dt><dd><a href="https://www.canaanspirit.co.il/" target="_blank" rel="noopener">canaanspirit.co.il</a></dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="container">
+      <span class="eyebrow reveal">ניסיון תעסוקתי</span>
+      <h2 class="section-heading reveal">ציר הדרך המקצועי</h2>
+      <div class="timeline">
+
+        <div class="tl-item reveal">
+          <svg class="tl-node" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="6" fill="#FBFAF7" stroke="#C79A5D" stroke-width="3"/></svg>
+          <div class="tl-card">
+            <div class="tl-head">
+              <div><div class="tl-role">מורה לחקלאות, התמחות בכלבנות</div><div class="tl-org">בית אקשטיין אור יהודה, תיכון לחינוך מיוחד</div></div>
+              <span class="tl-dates">2023 – היום</span>
+            </div>
+            <p class="tl-desc">מלמדת במגמת חקלאות המתמחה בענף הכלבים ומכינה תלמידים לבגרות ברמת 5 יחידות. הלמידה במגמה משלבת חוויה, התנסות מעשית, למידה בתנועה ומשחקים, בהתאמה לתלמידים עם לקויות למידה, במטרה להגביר מעורבות, הנאה והבנה. במסגרת זו התלמידים נחשפים לעולם הכלבנות והאילוף, מכירים את עולמם של הכלבים ועובדים באופן ישיר עם כלבותיי כחלק מהתהליך הלימודי.</p>
+            <button class="tl-toggle" data-toggle aria-expanded="false">הצג עוד</button>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <svg class="tl-node" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="6" fill="#FBFAF7" stroke="#C79A5D" stroke-width="3"/></svg>
+          <div class="tl-card">
+            <div class="tl-head">
+              <div><div class="tl-role">חוקרת במסגרת תואר שני מחקרי בזואולוגיה</div><div class="tl-org">המעבדה של ד"ר נועה טרוסקנוב לאקולוגיה התנהגותית וקוגניטיבית, אוניברסיטת תל אביב</div></div>
+              <span class="tl-dates">2023 – היום</span>
+            </div>
+            <p class="tl-desc">המחקר עוסק באסטרטגיות שיחור מזון בקרב חולדות בר בישראל, סביב מסורת מורכבת של פתיחת אצטרובלים של אורן ירושלים לצורך הוצאת זרעי צנובר. במסגרת המחקר נבחנים דפוסים יציבים של תפקידי scroungers ו-producers, שימור תפקידים לאורך זמן, וקשרים בין אסטרטגיות התנהגותיות לבין אינטראקציות חברתיות חיוביות או שליליות בין זוגות חולדות מאותו המין.</p>
+            <button class="tl-toggle" data-toggle aria-expanded="false">הצג עוד</button>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <svg class="tl-node" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="6" fill="#FBFAF7" stroke="#C79A5D" stroke-width="3"/></svg>
+          <div class="tl-card">
+            <div class="tl-head">
+              <div><div class="tl-role">מרצה, מנחת סדנאות ובעלת עסק</div><div class="tl-org">Canaan Spirit</div></div>
+              <span class="tl-dates">2019 – היום</span>
+            </div>
+            <p class="tl-desc">בעלת עסק עצמאי בתחום הכלבנות, במסגרתו מרצה במוסדות חינוך, ארגונים וחברות על תקשורת בין אדם לכלב, חינוך חיובי וכלבנות טיפולית. מעבירה הרצאות פתוחות לקהל הרחב, סדנאות חווייתיות וקורסים מעשיים. יזמה והקימה את ערוץ היוטיוב Canaan Spirit, הכולל תכנים מקצועיים, לייבים והרצאות דיגיטליות להנגשת ידע על עולם האילוף לקהל הרחב.</p>
+            <button class="tl-toggle" data-toggle aria-expanded="false">הצג עוד</button>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <svg class="tl-node" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="6" fill="#FBFAF7" stroke="#28405F" stroke-width="3"/></svg>
+          <div class="tl-card">
+            <div class="tl-head">
+              <div><div class="tl-role">Front-End Technical &amp; Team Lead</div><div class="tl-org">Forcepoint, Data Security Cloud</div></div>
+              <span class="tl-dates">2015 – 2021</span>
+            </div>
+            <p class="tl-desc">ניהלה והובילה את פיתוח ממשק המשתמש של פלטפורמת הלקוחות המרכזית של החברה, החל משלב התכנון והארכיטקטורה ועד לבנייה מלאה של הממשק ב-React. בהמשך ניהלה צוות פיתוח באופן שוטף, כולל הנחיה מקצועית, חלוקת משימות וליווי אישי של מפתחים. העבודה התבצעה בשיתוף פעולה עם צוותי פיתוח, מנהלי מוצר ופרויקטים, תחת מתודולוגיית Agile ובשימוש בתקשורת RESTful APIs.</p>
+            <button class="tl-toggle" data-toggle aria-expanded="false">הצג עוד</button>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <svg class="tl-node" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="6" fill="#FBFAF7" stroke="#28405F" stroke-width="3"/></svg>
+          <div class="tl-card">
+            <div class="tl-head">
+              <div><div class="tl-role">Senior Client Developer</div><div class="tl-org">Ladbrokes</div></div>
+              <span class="tl-dates">2013 – 2015</span>
+            </div>
+            <p class="tl-desc">פיתחה וניהלה ממשקי לקוחות, כולל תחזוקת אתרי החברה במערכת IMS. פיתחה כלים שיווקיים ודפי נחיתה בטכנולוגיות JavaScript, HTML, Angular ו-Flash, תוך התאמה לצרכים משתנים של שיווק, תוכן וחוויית משתמש, ובשיתוף פעולה שוטף עם צוותי עיצוב, שיווק ופיתוח.</p>
+            <button class="tl-toggle" data-toggle aria-expanded="false">הצג עוד</button>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <svg class="tl-node" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="6" fill="#FBFAF7" stroke="#28405F" stroke-width="3"/></svg>
+          <div class="tl-card">
+            <div class="tl-head">
+              <div><div class="tl-role">Flash and HTML5 Developers Team Manager</div><div class="tl-org">Game Scale</div></div>
+              <span class="tl-dates">2012 – 2013</span>
+            </div>
+            <p class="tl-desc">ניהלה את צוות הקליינט שפיתח משחקים בטכנולוגיית Flash, והובילה את פרויקט המעבר של המשחקים לפלטפורמת HTML5. הייתה אחראית על תכנון ארכיטקטורה, פיתוח וניהול משימות, תוך עבודה עם צוותים מבוזרים בארץ ובחו"ל ועמידה ביעדים ובלוחות זמנים.</p>
+            <button class="tl-toggle" data-toggle aria-expanded="false">הצג עוד</button>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <svg class="tl-node" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="6" fill="#FBFAF7" stroke="#28405F" stroke-width="3"/></svg>
+          <div class="tl-card">
+            <div class="tl-head">
+              <div><div class="tl-role">Flash AS3 Developer</div><div class="tl-org">William Hill</div></div>
+              <span class="tl-dates">2010 – 2012</span>
+            </div>
+            <p class="tl-desc">פיתחה אפליקציות שיווקיות, משחקים וכלים אינטראקטיביים בטכנולוגיות Flash ו-JavaScript. כתבה קוד למגוון פלטפורמות, כולל משחקים למכשירי iPhone ו-Android, ובנתה באנרים אינטראקטיביים ומיני משחקים לקמפיינים שיווקיים.</p>
+            <button class="tl-toggle" data-toggle aria-expanded="false">הצג עוד</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="container">
+      <span class="eyebrow reveal">השכלה והכשרות</span>
+      <h2 class="section-heading reveal">לימודים והכשרות מקצועיות</h2>
+      <div class="edu-grid">
+        <div class="edu-card reveal">
+          <div class="edu-dates">2023 – היום</div>
+          <div class="edu-title">M.Sc. in Zoology</div>
+          <div class="edu-org">אוניברסיטת תל אביב</div>
+        </div>
+        <div class="edu-card reveal">
+          <div class="edu-dates">2017 – 2022</div>
+          <div class="edu-title">B.Sc. במדעי החיים, מצטיינת</div>
+          <div class="edu-org">האוניברסיטה הפתוחה</div>
+        </div>
+        <div class="edu-card reveal">
+          <div class="edu-dates">2018 – 2019</div>
+          <div class="edu-title">מאלפת בחירה ומטפלת התנהגותית, אילוף כלבים</div>
+          <div class="edu-org">מכללת מאי דוג, בחסות האוניברסיטה העברית</div>
+        </div>
+        <div class="edu-card reveal">
+          <div class="edu-dates">2013</div>
+          <div class="edu-title">קורס פיתוח HTML5</div>
+          <div class="edu-org">מכללת Netcraft</div>
+        </div>
+        <div class="edu-card reveal">
+          <div class="edu-dates">2009 – 2010</div>
+          <div class="edu-title">קורס הכשרת תוכניתני .NET, Microsoft 2008</div>
+          <div class="edu-org">מכללת ג'ון ברייס</div>
+        </div>
+        <div class="edu-card reveal">
+          <div class="edu-dates">2003 – 2006</div>
+          <div class="edu-title">בגרות מלאה, מגמת מחשבים</div>
+          <div class="edu-org">תיכון הנדסאים, אוניברסיטת תל אביב</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="military">
+    <div class="container">
+      <span class="eyebrow reveal">שירות צבאי</span>
+      <div class="military-card reveal">
+        <div>
+          <div class="mtitle">כותבת לומדה</div>
+          <div class="morg">חיל האוויר, בית הספר לטיסה בחצרים ומחלקת שה"ד בקרייה</div>
+        </div>
+        <span class="mdates">2007 – 2009</span>
+        <p>פיתוח וכתיבת לומדות הדרכה במסגרת שירות בחיל האוויר.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <span class="eyebrow on-dark reveal">כישורים ומומחיות</span>
+      <h2 class="section-heading on-dark reveal">תחומי מומחיות</h2>
+      <div class="skill-grid">
+        <div class="skill-card reveal">
+          <h3>הוראה והנחיה</h3>
+          <ul>
+            <li>הנחיית סדנאות וקורסים, הרצאות פרונטליות ודיגיטליות ועמידה מול קהל</li>
+            <li>פיתוח תוכן לימודי וחווייתי, כתיבה והנגשה של ידע מקצועי ובניית מערכי שיעור</li>
+          </ul>
+        </div>
+        <div class="skill-card reveal">
+          <h3>חינוך מיוחד וכלבנות טיפולית</h3>
+          <ul>
+            <li>עבודה עם ילדים ונוער עם לקויות למידה והתאמת תהליכי למידה לצרכים מגוונים</li>
+            <li>הטמעת כלבנות ככלי חינוכי וטיפולי ושילוב כלבנות בהקשרים חינוכיים וטיפוליים</li>
+          </ul>
+        </div>
+        <div class="skill-card reveal">
+          <h3>עבודת צוות וניהול</h3>
+          <ul>
+            <li>עבודה בצוות רב תחומי ותקשורת בין אישית גבוהה</li>
+            <li>הנחיית עובדים וניהול משימות</li>
+          </ul>
+        </div>
+        <div class="skill-card reveal">
+          <h3>פיתוח Front-End</h3>
+          <ul>
+            <li>עבודה עם React, JavaScript, HTML ו-Angular</li>
+            <li>עבודה מול RESTful APIs</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="subsection-title reveal">כלים וטכנולוגיות</div>
+      <div class="chip-row reveal">
+        <span class="chip">React</span>
+        <span class="chip">JavaScript</span>
+        <span class="chip">HTML5</span>
+        <span class="chip">Angular</span>
+        <span class="chip">RESTful APIs</span>
+      </div>
+
+      <div class="subsection-title reveal">שפות</div>
+      <div class="chip-row reveal">
+        <span class="chip">עברית</span>
+        <span class="chip">רוסית</span>
+        <span class="chip">אנגלית</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <span class="eyebrow reveal">יצירת קשר</span>
+      <h2 class="section-heading reveal">בואו נדבר</h2>
+      <p class="contact-lead reveal">אשמח לשמוע ממגייסים, מוסדות חינוך וארגונים המעוניינים בהרצאה, סדנה או שיתוף פעולה.</p>
+      <div class="contact-grid">
+        <a class="contact-card reveal" href="tel:+972542166396">
+          <span class="ic" aria-hidden="true">☎</span>
+          <span><span class="lbl">טלפון</span><br><span class="val">054-216-6396</span></span>
+        </a>
+        <a class="contact-card reveal" href="mailto:tanyatabakmaher@gmail.com">
+          <span class="ic" aria-hidden="true">✉</span>
+          <span><span class="lbl">דוא"ל</span><br><span class="val">tanyatabakmaher@gmail.com</span></span>
+        </a>
+        <div class="contact-card reveal" style="cursor:default;">
+          <span class="ic" aria-hidden="true">📍</span>
+          <span><span class="lbl">מיקום</span><br><span class="val">תל אביב</span></span>
+        </div>
+        <a class="contact-card reveal" href="https://www.canaanspirit.co.il/" target="_blank" rel="noopener">
+          <span class="ic" aria-hidden="true">🌐</span>
+          <span><span class="lbl">אתר</span><br><span class="val">canaanspirit.co.il</span></span>
+        </a>
+        <a class="contact-card reveal" href="https://www.youtube.com/@canaanspirit" target="_blank" rel="noopener">
+          <span class="ic" aria-hidden="true">▶</span>
+          <span><span class="lbl">יוטיוב</span><br><span class="val">Canaan Spirit</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<button class="to-top" id="toTop" aria-label="חזרה לראש העמוד">↑</button>
+
+<footer>
+  <p><strong>טניה טבקמכר</strong> — מורה לחקלאות וכלבנות | חוקרת התנהגות בעלי חיים | מרצה ומנחת סדנאות</p>
+  <p>© <span id="year"></span> כל הזכויות שמורות</p>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Sticky nav background on scroll
+  var nav = document.getElementById('siteNav');
+  var toTop = document.getElementById('toTop');
+  function onScroll(){
+    var y = window.scrollY || document.documentElement.scrollTop;
+    if(y > 80){ nav.classList.add('scrolled'); } else { nav.classList.remove('scrolled'); }
+    if(y > 500){ toTop.classList.add('show'); } else { toTop.classList.remove('show'); }
+  }
+  document.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  toTop.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'});
+  });
+
+  // Mobile nav toggle
+  var toggle = document.getElementById('navToggle');
+  var links = document.getElementById('navLinks');
+  toggle.addEventListener('click', function(){
+    var isOpen = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded','false');
+    });
+  });
+
+  // Active section highlight
+  var navAnchors = Array.prototype.slice.call(document.querySelectorAll('[data-nav]'));
+  var sections = navAnchors.map(function(a){ return document.querySelector(a.getAttribute('href')); }).filter(Boolean);
+  if('IntersectionObserver' in window){
+    var activeObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        var id = entry.target.id;
+        var link = document.querySelector('[data-nav][href="#'+id+'"]');
+        if(!link) return;
+        if(entry.isIntersecting){
+          navAnchors.forEach(function(a){ a.classList.remove('active'); });
+          link.classList.add('active');
+        }
+      });
+    }, {rootMargin:'-45% 0px -45% 0px', threshold:0});
+    sections.forEach(function(s){ activeObserver.observe(s); });
+  }
+
+  // Reveal on scroll
+  var revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var revealObserver = new IntersectionObserver(function(entries, obs){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.12});
+    revealEls.forEach(function(el){ revealObserver.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  // Expand/collapse long descriptions
+  document.querySelectorAll('[data-toggle]').forEach(function(btn){
+    var desc = btn.previousElementSibling;
+    // measure whether clamped text actually overflows; if not, hide the toggle
+    requestAnimationFrame(function(){
+      if(desc.scrollHeight - desc.clientHeight < 4){
+        btn.style.display = 'none';
+      }
+    });
+    btn.addEventListener('click', function(){
+      var expanded = desc.classList.toggle('expanded');
+      btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      btn.textContent = expanded ? 'הצג פחות' : 'הצג עוד';
+    });
+  });
+})();
+</script>
+</body>
+</html>
